@@ -1,0 +1,43 @@
+import pygame
+
+pygame.init()
+
+background = pygame.display.set_mode((650, 500))
+
+background.fill((100,100,100))
+
+image = pygame.image.load("blue ball.png.png")
+x = 0
+y = 0
+x_direction = "right"
+clock = pygame.time.Clock()
+
+
+
+while True:
+
+    for i in pygame.event.get():
+        if i.type == pygame.QUIT:
+            exit()
+    background.blit(image, (x,y))
+    pygame.display.update()
+    if x >= 650 - image.get_width():
+        x_direction = "left"
+    if x == 10:
+        x_direction = "right"
+    
+    # if y >= 500:
+    #     y_direction = "up"
+    # if y == 0:
+    #     y_direction = "down"
+    if x_direction == 'right':
+        x += 1
+    else:
+        x -= 1
+
+    background.fill((100,100,100))
+
+    #direction
+    
+
+    clock.tick(100)
